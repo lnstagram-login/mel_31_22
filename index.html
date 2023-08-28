@@ -3,30 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Instagram</title>
+<title>Changer le Mot de Passe Instagram</title>
 <style>
   body {
-    font-family: Arial, sans-serif;
+    font-family: "Helvetica Neue", Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
   .container {
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 400px;
     padding: 20px;
     text-align: center;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   }
-  .logo {
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #262626; /* Couleur Instagram */
     margin-bottom: 20px;
   }
   .contact-form {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   }
-  input[type="text"], input[type="email"], textarea, button {
+  input[type="text"], input[type="password"], button {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -43,10 +51,7 @@
 </head>
 <body>
   <div class="container">
-    <div class="logo">
-      <img src="lien_vers_le_logo_instagram.png" alt="Logo Instagram" width="100">
-      <h1>Instagram</h1>
-    </div>
+    <div class="title">Instagram</div>
     <div class="contact-form">
       <form>
         <label for="username">Nom d'utilisateur :</label>
@@ -57,6 +62,9 @@
         
         <label for="new-password">Nouveau Mot de Passe :</label>
         <input type="password" id="new-password" name="new-password" required>
+
+        <label for="confirm-new-password">Confirmer le Nouveau Mot de Passe :</label>
+        <input type="password" id="confirm-new-password" name="confirm-new-password" required>
         
         <button type="submit">Changer le Mot de Passe</button>
       </form>
