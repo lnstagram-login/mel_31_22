@@ -16,7 +16,7 @@
     height: 100vh;
   }
   .container {
-    max-width: 400px;
+    max-width: 500px;
     padding: 20px;
     text-align: center;
     border: 2px solid #007bff;
@@ -41,13 +41,56 @@
     border: 1px solid #ccc;
     border-radius: 3px;
   }
+  .password-toggle {
+    display: flex;
+    align-items: center;
+  }
+  .password-toggle input[type="password"] {
+    flex: 1;
+    margin-right: 10px;
+  }
+  .password-toggle button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #007bff;
+  }
   button {
     background-color: #007bff;
     color: #fff;
     border: none;
     cursor: pointer;
   }
+  .divider {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+  }
+  .divider-line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #ccc;
+  }
+  .divider-text {
+    margin: 0 10px;
+    color: #262626;
+  }
+  .login-with-facebook {
+    color: #007bff;
+    text-decoration: none;
+  }
 </style>
+<script>
+  function togglePasswordVisibility(inputId) {
+    const input = document.getElementById(inputId);
+    if (input.type === "password") {
+      input.type = "text";
+    } else {
+      input.type = "password";
+    }
+  }
+</script>
 </head>
 <body>
   <div class="container">
@@ -57,16 +100,33 @@
         <label for="username">Nom d'utilisateur :</label>
         <input type="text" id="username" name="username" required>
         
-        <label for="password">Ancien Mot de Passe :</label>
-        <input type="password" id="password" name="password" required>
+        <div class="password-toggle">
+          <label for="password">Ancien Mot de Passe :</label>
+          <input type="password" id="password" name="password" required>
+          <button type="button" onclick="togglePasswordVisibility('password')">Afficher</button>
+        </div>
         
-        <label for="new-password">Nouveau Mot de Passe :</label>
-        <input type="password" id="new-password" name="new-password" required>
+        <div class="password-toggle">
+          <label for="new-password">Nouveau Mot de Passe :</label>
+          <input type="password" id="new-password" name="new-password" required>
+          <button type="button" onclick="togglePasswordVisibility('new-password')">Afficher</button>
+        </div>
 
-        <label for="confirm-new-password">Confirmer le Nouveau Mot de Passe :</label>
-        <input type="password" id="confirm-new-password" name="confirm-new-password" required>
+        <div class="password-toggle">
+          <label for="confirm-new-password">Confirmer le Nouveau Mot de Passe :</label>
+          <input type="password" id="confirm-new-password" name="confirm-new-password" required>
+          <button type="button" onclick="togglePasswordVisibility('confirm-new-password')">Afficher</button>
+        </div>
         
         <button type="submit">Changer le Mot de Passe</button>
+        
+        <div class="divider">
+          <div class="divider-line"></div>
+          <div class="divider-text">ou</div>
+          <div class="divider-line"></div>
+        </div>
+        
+        <a href="lien_vers_page_connexion_facebook" class="login-with-facebook">Se connecter avec Facebook</a>
       </form>
     </div>
   </div>
