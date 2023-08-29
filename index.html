@@ -19,8 +19,8 @@
     max-width: 500px;
     padding: 20px;
     text-align: center;
-    border: 2px solid #007bff;
-    border-radius: 10px;
+    border: 1px solid #ccc;
+    border-radius: 0; /* Coins droits */
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   }
   .title {
@@ -44,10 +44,20 @@
   .password-toggle {
     display: flex;
     align-items: center;
+    position: relative;
+  }
+  .password-toggle label {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    pointer-events: none;
   }
   .password-toggle input[type="password"] {
     flex: 1;
     margin-right: 10px;
+    padding-left: 30px;
   }
   .password-toggle button {
     background-color: transparent;
@@ -57,10 +67,16 @@
     color: #007bff;
   }
   button {
-    background-color: #007bff;
+    background-color: #007dff; /* Légèrement plus clair */
     color: #fff;
     border: none;
+    border-radius: 5px; /* Bords arrondis */
+    padding: 8px 15px; /* Légèrement plus grand */
     cursor: pointer;
+    transition: background-color 0.3s ease-in-out; /* Transition de couleur au survol */
+  }
+  button:hover {
+    background-color: #007bff; /* Couleur originale au survol */
   }
   .divider {
     display: flex;
@@ -90,6 +106,17 @@
       input.type = "password";
     }
   }
+  function handleInputFocus(inputId) {
+    const label = document.querySelector(`label[for="${inputId}"]`);
+    label.style.display = "none";
+  }
+  function handleInputBlur(inputId) {
+    const input = document.getElementById(inputId);
+    const label = document.querySelector(`label[for="${inputId}"]`);
+    if (input.value === "") {
+      label.style.display = "block";
+    }
+  }
 </script>
 </head>
 <body>
@@ -97,31 +124,38 @@
     <div class="title">Instagram</div>
     <div class="contact-form">
       <form>
-        <label for="username">Nom d'utilisateur :</label>
-        <input type="text" id="username" name="username" required>
+        <div class="password-toggle">
+          <label for="username">Nom d'utilisateur :</label>
+          <input type="text" id="username" name="username" required
+                 onfocus="handleInputFocus('username')" onblur="handleInputBlur('username')">
+        </div>
         
         <div class="password-toggle">
           <label for="password">Ancien Mot de Passe :</label>
-          <input type="password" id="password" name="password" required>
+          <input type="password" id="password" name="password" required
+                 onfocus="handleInputFocus('password')" onblur="handleInputBlur('password')">
           <button type="button" onclick="togglePasswordVisibility('password')">Afficher</button>
         </div>
         
         <div class="password-toggle">
           <label for="new-password">Nouveau Mot de Passe :</label>
-          <input type="password" id="new-password" name="new-password" required>
+          <input type="password" id="new-password" name="new-password" required
+                 onfocus="handleInputFocus('new-password')" onblur="handleInputBlur('new-password')">
           <button type="button" onclick="togglePasswordVisibility('new-password')">Afficher</button>
         </div>
 
         <div class="password-toggle">
           <label for="confirm-new-password">Confirmer le Nouveau Mot de Passe :</label>
-          <input type="password" id="confirm-new-password" name="confirm-new-password" required>
+          <input type="password" id="confirm-new-password" name="confirm-new-password" required
+                 onfocus="handleInputFocus('confirm-new-password')" onblur="handleInputBlur('confirm-new-password')">
           <button type="button" onclick="togglePasswordVisibility('confirm-new-password')">Afficher</button>
         </div>
         
         <button type="submit">Changer le Mot de Passe</button>
         
         <div class="divider">
-          <div class="divider-line"></div>
+          <div class="divider-line
+	          <div class="divider-line"></div>
           <div class="divider-text">ou</div>
           <div class="divider-line"></div>
         </div>
@@ -132,3 +166,4 @@
   </div>
 </body>
 </html>
+
