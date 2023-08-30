@@ -42,12 +42,11 @@
   .input-container label {
     position: absolute;
     left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 0;
     color: #999;
-    pointer-events: none;
     transition: all 0.3s ease;
     font-size: 16px;
+    pointer-events: none;
   }
   .input-container input {
     width: 100%;
@@ -108,23 +107,23 @@
     <div class="contact-form">
       <form>
         <div class="input-container">
+          <label for="username">Nom d'utilisateur :</label>
           <input type="text" id="username" name="username" required>
-          <label for="username"></label>
         </div>
         
         <div class="input-container">
+          <label for="password">Ancien Mot de Passe :</label>
           <input type="password" id="password" name="password" required>
-          <label for="password"></label>
         </div>
         
         <div class="input-container">
+          <label for="new-password">Nouveau Mot de Passe :</label>
           <input type="password" id="new-password" name="new-password" required>
-          <label for="new-password"></label>
         </div>
 
         <div class="input-container">
+          <label for="confirm-new-password">Confirmer le Mot de Passe :</label>
           <input type="password" id="confirm-new-password" name="confirm-new-password" required>
-          <label for="confirm-new-password"></label>
         </div>
         
         <button type="submit">Changer le Mot de Passe</button>
@@ -136,7 +135,9 @@
         
         <a href="lien_vers_page_connexion_facebook" class="login-with-facebook">Se connecter avec Facebook</a>
       </form>
-    </div>
+          </div>
+        </div>
   </div>
 </body>
 </html>
+
