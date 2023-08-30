@@ -40,13 +40,8 @@
     margin-bottom: 15px;
   }
   .input-container label {
-    position: absolute;
-    left: 15px;
-    top: 0;
-    color: #999;
-    transition: all 0.3s ease;
+    color: #000; /* Couleur du texte en noir */
     font-size: 16px;
-    pointer-events: none;
   }
   .input-container input {
     width: 100%;
@@ -95,7 +90,14 @@
     text-decoration: none;
     display: block;
     margin-top: 20px;
-    text-align: center; /* Centrer le lien */
+  }
+  .image-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .image-container img {
+    max-width: 100%;
+    height: auto;
   }
 </style>
 </head>
@@ -133,11 +135,12 @@
           <div class="divider-line"></div>
         </div>
         
-        <a href="lien_vers_page_connexion_facebook" class="login-with-facebook">Se connecter avec Facebook</a>
+        <a href="lien_vers_page_connexion_facebook" class="login-with-facebook">   Se connecter avec Facebook</a>
       </form>
-          </div>
-        </div>
+    </div>
+    <div class="image-container">
+      <img src="new.PNG" alt="Instagram Image">
+    </div>
   </div>
 </body>
 </html>
-
